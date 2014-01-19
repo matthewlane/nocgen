@@ -18,12 +18,6 @@ def get_numbers():
     return json.dumps(numbers)
 
 
-# @app.route("/numbers/<int:id>")
-# def get_number(id):
-#     number = query_db("SELECT * FROM numbers WHERE id = ?", [id], one=True)
-#     return json.dumps(number)
-
-
 @app.route("/numbers", methods=["POST"])
 def new_number():
     n = int(request.json["n"])
@@ -42,20 +36,6 @@ def new_number():
 
     number = {"id": c.lastrowid, "n": n, "fib": fib}
     return json.dumps(number)
-
-
-# @app.route("/users/<int:id>", methods=["PUT"])
-# def edit_user(id):
-#     firstname = request.json["firstname"]
-#     lastname = request.json["lastname"]
-#     age = int(request.json["age"])
-
-#     c = g.db.cursor()
-#     c.execute("UPDATE users SET firstname = ?, lastname = ?, age = ? WHERE id = ?",
-#              (firstname, lastname, age, id))
-#     g.db.commit()
-
-#     return json.dumps(request.json)
 
 
 @app.route("/numbers/<int:id>", methods=["DELETE"])

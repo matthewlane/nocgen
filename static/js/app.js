@@ -39,7 +39,6 @@
 
 	var NumCollectionView = Backbone.View.extend({
 		el: ".container",
-		// template: _.template($("#number-list").html()),
 
 		events: {
 			"submit form": "submit"
